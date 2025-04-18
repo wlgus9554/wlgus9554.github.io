@@ -45,6 +45,10 @@ jobs:
           ruby-version: 3.3
           bundler-cache: true
 
+         # ✅ 이 부분 추가!
+      - name: Add platform for Linux
+        run: bundle lock --add-platform x86_64-linux
+
       - name: Build site
         run: bundle exec jekyll b -d "_site${{ steps.pages.outputs.base_path }}"
         env:
