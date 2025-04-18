@@ -1,12 +1,15 @@
-name: Build and Deploy Chirpy
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
-  build-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +27,7 @@ jobs:
           bundle install
           bundle lock --add-platform x86_64-linux
 
-      - name: Build the site
+      - name: Build site
         run: bundle exec jekyll build
 
       - name: Deploy to GitHub Pages
