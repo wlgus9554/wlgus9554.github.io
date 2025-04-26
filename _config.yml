@@ -166,6 +166,9 @@ kramdown:
       start_line: 1
 
 collections:
+  posts:
+    output: true
+
   tabs:
     output: true
     sort_by: order
